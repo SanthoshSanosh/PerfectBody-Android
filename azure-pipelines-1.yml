@@ -1,17 +1,7 @@
 # Xamarin.Android
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'PerfectBody-Deployment'
-    appSlug: 'santhosh.kannan-aspiresys.com/Demo-PerfectBody'
-    appFile: '$(System.DefaultWorkingDirectory)/_Demo-Xamarian-Android-Xamarin.Android-CI (1)/drop/Perfect_Body.Perfect_Body.apk'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'DEploy'
-    destinationType: 'groups'
-    distributionGroupId: '64620b41-6e2a-429e-baa8-b6a130350730'
 # Build a Xamarin.Android project.
 # Add steps that test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
-
 trigger:
 - main
 
@@ -34,3 +24,12 @@ steps:
     projectFile: '**/*droid*.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'PerfectBody-Deployment'
+    appSlug: 'santhosh.kannan-aspiresys.com/Demo-PerfectBody'
+    appFile: '$(System.DefaultWorkingDirectory)/_Demo-Xamarian-Android-Xamarin.Android-CI (1)/drop/Perfect_Body.Perfect_Body.apk'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'DEploy'
+    destinationType: 'groups'
+    distributionGroupId: '64620b41-6e2a-429e-baa8-b6a130350730'
